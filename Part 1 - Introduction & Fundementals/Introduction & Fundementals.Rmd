@@ -1,0 +1,108 @@
+---
+title: "R basic workshop"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+math operations
+
+no modulus operation
+all numbers treated as numbers instead of num and float like in python
+log is assumed to be natural log
+trig functions are in radians
+```{r}
+1+1
+1+1.1
+20-5
+3*5
+15/5
+
+sqrt(9)
+log(100)
+log10(100)
+
+sin(pi)
+```
+rounding decimal places and significant figures
+floor and ceiling round to nearest whole numbers, floor rounds down and ceiling rounds up
+```{r}
+round(123.245, digits = 2)
+signif(123.245, digits = 2)
+
+floor(123.245)
+ceiling(123.245)
+```
+
+logic operators return boolean values (true or false)
+for the logic operator and to be true, both statements must be true
+for the logic operator or to be true, either statement must be true 
+```{r}
+1 < 2
+2 <= 2
+3+3 == 6
+3+3 != 3*3
+
+1 < 2 & 1 > 3
+1 < 2 | 1 > 3
+```
+
+generating random numbers from normal/uniform distribution
+```{r}
+runif(5, min = 0, max = 10)
+rnorm(5, mean = 0, sd = 1)
+```
+declaring a variable
+print function simply prints its argument as it is, paste function
+converts the arguments data type to a string and then prints it
+```{r}
+a <- 8177919
+print(a)
+paste(a)
+```
+declaring vector (notice how index starts from 1 instead of 0)
+square brackets subsets a vector
+```{r}
+b <- c(1:5, "R basic")
+b
+b[1]
+```
+list stuff - each element in a list has a name (height, name)
+The first element height is a uniform distribution with random numbers
+The second element name is a list within a list, it contains strings
+Can subset a list by name by using $
+```{r}
+c <- list(height=runif(5, min = 160, max = 180), name=c("bob", "lauren", "john", "ashley", "taylor"))
+c
+c$height
+c$name
+```
+conditional
+if statement: if operator condition is true, then print string
+if false, print a different string
+for loop loops through numbers from 1 to the length of vector b and prints each element in b 
+```{r}
+if (2 > 1){
+  print("2 is larger than 1")
+} else {
+  print("1 is larger than 2")
+}
+
+for (i in 1:length(b)){
+  print(b[i])
+}
+```
+
+
+import data for second part, check section 4 on Colautti's page for more
+```{r}
+getwd()
+#setwd()
+#dat <- read.csv("generic.csv", header = TRUE)
+#names(dat)
+#head(dat)
+```
+
+ctrl + alt + i to add another code block
